@@ -4,6 +4,21 @@ class Api::UsersController < ApplicationController
     render json: users
   end
 
+  def create_a_post
+    file = params[:file]
+    if file
+      begin
+        cloud_image = Cloudinary::Uploader.upload(file, public_id: file.original_filename, secure: true, resource_type: :auto)
+
+        post = current_user.posts.create(image: cloud_image["secure_url"], description: params[:description])
+        render json: post
+      rescue => e
+        render json: { errors: e }, status: 422
+        return
+      end
+    end
+  end
+
   def basic_upload
     file = params[:file]
 

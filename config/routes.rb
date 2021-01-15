@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :users
     put "basic_upload", to: "users#basic_upload"
     put "update_user_imagine", to: "users#update_user_imagine"
+    post "create_post", to: "users#create_a_post"
   end
 end
