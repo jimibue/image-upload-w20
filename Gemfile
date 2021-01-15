@@ -23,6 +23,8 @@ gem 'devise_token_auth'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
+gem 'cloudinary'
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
@@ -32,6 +34,7 @@ group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
   gem "pry-rails"
+  gem 'dotenv-rails'
 
 end
 
